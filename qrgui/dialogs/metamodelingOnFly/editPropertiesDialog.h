@@ -22,7 +22,8 @@ public:
 	/// @param interpreterEditorManager Editor manager.
 	/// @param id Id of an element for which we edit properties.
 	/// @param parent Parent widget, who is responsible for deletion of this dialog.
-	explicit EditPropertiesDialog(EditorManagerInterface &interpreterEditorManager, Id const &id, QWidget *parent);
+	explicit EditPropertiesDialog(EditorManagerInterface &interpreterEditorManager, Id const &id
+			, QWidget *parent, qrRepo::LogicalRepoApi &api);
 
 	/// Destructor.
 	~EditPropertiesDialog();
@@ -32,7 +33,8 @@ public:
 	/// @param propertyName Name of a property which we edit.
 	/// @param propertyDisplayedName Displayed name of this property.
 	void changeProperty(QListWidgetItem *propertyItem, QString const &propertyName
-				, QString const &propertyDisplayedName);
+				, QString const &propertyDisplayedName
+				, qReal::IdList elementsOnDiagram);
 
 private slots:
 	void okButtonClicked();
@@ -56,5 +58,7 @@ private:
 	QString mPropertyName;
 	QListWidgetItem *mPropertyItem;
 	Mode mMode;
+	qrRepo::LogicalRepoApi &mApi;
+	qReal::IdList mElementsOnDiagram;
 };
 }
