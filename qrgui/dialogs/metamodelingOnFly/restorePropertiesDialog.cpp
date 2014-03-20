@@ -18,11 +18,8 @@ RestorePropertiesDialog::RestorePropertiesDialog(QWidget *parent
 	mUi->sameNamePropertiesTW->setHorizontalHeaderItem(2, new QTableWidgetItem(tr("Type")));
 	mUi->sameNamePropertiesTW->insertColumn(3);
 	mUi->sameNamePropertiesTW->setHorizontalHeaderItem(3, new QTableWidgetItem(tr("Default value")));
-	//mUi->sameNamePropertiesTW->resizeColumnsToContents();
-	//mUi->sameNamePropertiesTW->horizontalHeader()->setSectionResizeMode(ResizeToContents);
 	mUi->sameNamePropertiesTW->adjustSize();
 	this->setMinimumSize(mUi->sameNamePropertiesTW->size());
-	//this->resize(mUi->sameNamePropertiesTW->size());
 	mUi->sameNamePropertiesTW->horizontalHeader()->setStretchLastSection(true);
 	connect(mUi->restoreButton, &QPushButton::clicked, this, &RestorePropertiesDialog::restoreButtonClicked);
 	connect(mUi->createNewButton, &QPushButton::clicked, this, &RestorePropertiesDialog::createButtonClicked);
