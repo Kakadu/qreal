@@ -53,7 +53,7 @@ private:
 	void initDefaultValues();
 
 	Ui::EditPropertiesDialog *mUi;
-	EditorManagerInterface &mInterperterEditorManager;
+	EditorManagerInterface &mInterpreterEditorManager;
 	RestorePropertiesDialog *mRestorePropertiesDialog;
 	Id mId;
 	QString mPropertyName;
