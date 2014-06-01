@@ -37,6 +37,7 @@ public:
 				, QString const &propertyDisplayedName
 				, qReal::IdList elementsOnDiagram);
 
+
 private slots:
 	void okButtonClicked();
 	void messageBoxCancel();
