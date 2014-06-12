@@ -45,6 +45,14 @@
 #include "textEditor/codeEditor.h"
 #include "textEditor/textManager.h"
 
+#include "dialogs/suggestToCreateDiagramDialog.h"
+#include "mainwindow/tabWidget.h"
+#include "mainwindow/qscintillaTextEdit.h"
+#include "toolPluginInterface/systemEvents.h"
+#include "mainwindow/filterObject.h"
+
+class QDeclarativeEngine;
+
 namespace Ui {
 class MainWindowUi;
 }
@@ -395,6 +403,8 @@ private:
 	SystemEvents *mSystemEvents;
 	TextManager *mTextManager;
 	QScopedPointer<Exploser> mExploser;
+
+	QDeclarativeEngine *mQmlEngine;
 
 	QVector<bool> mSaveListChecked;
 

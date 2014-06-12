@@ -1,4 +1,4 @@
-QT += svg xml printsupport widgets
+QT += svg xml printsupport widgets help declarative
 
 INCLUDEPATH += \
 	$$PWD \
@@ -25,7 +25,7 @@ include(umllib/umllib.pri)
 include(dialogs/dialogs.pri)
 
 # Main window
-include(mainwindow/mainwindow.pri)
+include(mainWindow/mainwindow.pri)
 
 # Graphical and logical models
 include(models/models.pri)

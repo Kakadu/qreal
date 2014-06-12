@@ -17,6 +17,7 @@
 #include <QtWidgets/QAbstractButton>
 #include <QtWidgets/QAction>
 #include <QtGui/QKeySequence>
+#include <QtDeclarative/QDeclarativeEngine>
 
 #include <qrkernel/settingsManager.h>
 #include <qrutils/outFile.h>
@@ -70,6 +71,7 @@ MainWindow::MainWindow(QString const &fileToOpen)
 		, mGesturesWidget(nullptr)
 		, mSystemEvents(new SystemEvents())
 		, mTextManager(new TextManager(mSystemEvents, this))
+		, mQmlEngine(new QDeclarativeEngine(this))
 		, mRootIndex(QModelIndex())
 		, mErrorReporter(nullptr)
 		, mIsFullscreen(false)
@@ -1272,7 +1274,7 @@ void MainWindow::openNewTab(QModelIndex const &arg)
 	if (tabNumber != -1) {
 		mUi->tabs->setCurrentIndex(tabNumber);
 	} else {
-		EditorView * const view = new EditorView(this);
+		EditorView * const view = new EditorView(mQmlEngine, this);
 		if (view) {
 			Id const diagramId = mModels->graphicalModelAssistApi().idByIndex(index);
 			mController->diagramOpened(diagramId);

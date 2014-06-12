@@ -252,13 +252,13 @@ QString EditorManager::mouseGesture(const Id &id) const
 QIcon EditorManager::icon(Id const &id) const
 {
 	Q_ASSERT(mPluginsLoaded.contains(id.editor()));
-	return SdfIconLoader::iconOf(":/generated/shapes/" + id.element() + "Class.sdf");
+	return QIcon(); //SdfIconLoader::iconOf(":/generated/shapes/" + id.element() + "Class.sdf");
 }
 
 QSize EditorManager::iconSize(Id const &id) const
 {
 	Q_ASSERT(mPluginsLoaded.contains(id.editor()));
-	return SdfIconLoader::preferedSizeOf(":/generated/shapes/" + id.element() + "Class.sdf");
+	return QSize();// SdfIconLoader::preferedSizeOf(":/generated/shapes/" + id.element() + "Class.sdf");
 }
 
 ElementImpl *EditorManager::elementImpl(const Id &id) const

@@ -11,7 +11,6 @@
 #include "editorPluginInterface/labelInterface.h"
 #include "editorPluginInterface/labelFactoryInterface.h"
 #include "editorPluginInterface/elementRepoInterface.h"
-#include "editorPluginInterface/sdfRendererInterface.h"
 #include "editorPluginInterface/portHelpers.h"
 
 namespace enums {
@@ -41,9 +40,12 @@ typedef QPair<qReal::Id, qReal::Id> ElementPair;
 class ElementImpl {
 public:
 	virtual ~ElementImpl() {}
-	virtual void init(QRectF &contents, PortFactoryInterface const &portFactory, QList<PortInterface *> &ports
-			, LabelFactoryInterface &labelFactory, QList<LabelInterface *> &labels
-			, SdfRendererInterface *renderer, ElementRepoInterface *elementRepo = 0) = 0;
+	virtual void init(QRectF &contents
+			, PortFactoryInterface const &portFactory
+			, QList<PortInterface *> &ports
+			, LabelFactoryInterface &labelFactory
+			, QList<LabelInterface *> &labels
+			, ElementRepoInterface *elementRepo = 0) = 0;
 	virtual void init(LabelFactoryInterface &factory
 			, QList<LabelInterface*> &titles) = 0;
 	virtual void paint(QPainter *painter, QRectF &contents) = 0;

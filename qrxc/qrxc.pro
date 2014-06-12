@@ -36,7 +36,6 @@ HEADERS += association.h \
 	pointPort.h \
 	port.h \
 	property.h \
-	sdftocpp.h \
 	stringType.h \
 	type.h \
 	xmlCompiler.h \
@@ -58,7 +57,6 @@ SOURCES += association.cpp \
 	pointPort.cpp \
 	port.cpp \
 	property.cpp \
-	sdftocpp.cpp \
 	stringType.cpp \
 	type.cpp \
 	xmlCompiler.cpp \

@@ -16,7 +16,7 @@ class EditorView : public QGraphicsView
 	Q_OBJECT
 
 public:
-	explicit EditorView(QWidget *parent);
+	EditorView(QDeclarativeEngine *qmlEngine, QWidget *parent);
 	~EditorView();
 
 	EditorViewMViface *mvIface() const;

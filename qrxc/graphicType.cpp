@@ -598,7 +598,7 @@ void GraphicType::generateOneCase(OutFile &out, bool isNotFirst) const
 QString GraphicType::resourceName(QString const &resourceType) const
 {
 	QString name = NameNormalizer::normalize(qualifiedName());
-	return name + resourceType + ".sdf";
+	return name + resourceType + ".qml";
 }
 
 bool GraphicType::generateContainedTypes(OutFile &out, bool isNotFirst)

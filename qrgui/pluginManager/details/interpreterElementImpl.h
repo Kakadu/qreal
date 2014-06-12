@@ -14,7 +14,6 @@
 #include "editorPluginInterface/elementImpl.h"
 #include "editorPluginInterface/labelInterface.h"
 #include "editorPluginInterface/elementRepoInterface.h"
-#include "umllib/sdfRenderer.h"
 
 namespace qReal {
 
@@ -49,7 +48,7 @@ public:
 	InterpreterElementImpl(qrRepo::RepoApi *repo, Id const &metaId);
 	void init(QRectF &contents, PortFactoryInterface const &portFactory, QList<PortInterface *> &ports
 			, LabelFactoryInterface &labelFactory, QList<LabelInterface *> &labels
-			, SdfRendererInterface *renderer, ElementRepoInterface *elementRepo = 0);
+			, ElementRepoInterface *elementRepo = 0);
 	void init(LabelFactoryInterface &labelFactory, QList<LabelInterface *> &labels);
 	void paint(QPainter *painter, QRectF &contents);
 	void updateData(ElementRepoInterface *repo) const;
@@ -103,7 +102,6 @@ private:
 
 	qrRepo::RepoApi *mEditorRepoApi;  // Doesn't have ownership.
 	Id mId;
-	SdfRendererInterface *mRenderer;  // Doesn't have ownership.
 	QDomDocument mGraphics;
 	QList<NodeLabel> mNodeLabels;
 	QList<EdgeLabel> mEdgeLabels;

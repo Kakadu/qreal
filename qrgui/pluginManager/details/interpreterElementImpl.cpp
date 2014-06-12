@@ -131,7 +131,7 @@ void InterpreterElementImpl::initLinePorts(PortFactoryInterface const &factory, 
 
 void InterpreterElementImpl::init(QRectF &contents, PortFactoryInterface const &portFactory
 		, QList<PortInterface *> &ports, LabelFactoryInterface &labelFactory
-		, QList<LabelInterface *> &labels, SdfRendererInterface *renderer, ElementRepoInterface *elementRepo)
+		, QList<LabelInterface *> &labels, ElementRepoInterface *elementRepo)
 {
 	Q_UNUSED(elementRepo);
 	if (mId.element() == "MetaEntityNode") {
@@ -140,8 +140,8 @@ void InterpreterElementImpl::init(QRectF &contents, PortFactoryInterface const &
 		QDomElement sdfElement = mGraphics.firstChildElement("graphics").firstChildElement("picture");
 		classDoc.appendChild(classDoc.importNode(sdfElement, true));
 		if (!classDoc.childNodes().isEmpty()) {
-			mRenderer = renderer;
-			mRenderer->load(classDoc);
+//			mRenderer = renderer;
+//			mRenderer->load(classDoc);
 		}
 
 		int width = 0;
@@ -189,7 +189,7 @@ void InterpreterElementImpl::paint(QPainter *painter, QRectF &contents)
 {
 	if (mId.element() == "MetaEntityNode") {
 		if(!mGraphics.childNodes().isEmpty()) {
-			mRenderer->render(painter, contents);
+//			mRenderer->render(painter, contents);
 		}
 	}
 }
@@ -535,10 +535,10 @@ void InterpreterElementImpl::updateRendererContent(QString const &shape)
 {
 	QDomDocument classDoc;
 	mGraphics.setContent(shape);
-	QDomElement sdfElement = mGraphics.firstChildElement("graphics").firstChildElement("picture");
-	classDoc.appendChild(classDoc.importNode(sdfElement, true));
+	QDomElement qmlElement = mGraphics.firstChildElement("graphics").firstChildElement("picture");
+	classDoc.appendChild(classDoc.importNode(qmlElement, true));
 	if (!classDoc.childNodes().isEmpty()) {
-		mRenderer->load(classDoc);
+//		mRenderer->load(classDoc);
 	}
 }
 

@@ -38,7 +38,7 @@ Type* NodeType::clone() const
 		result->mPorts.append(port->clone());
 	}
 
-	result->mSdfDomElement = mSdfDomElement;
+	result->mQmlDomElement = mQmlDomElement;
 	result->mPortsDomElement = mPortsDomElement;
 	result->mIsPin = mIsPin;
 	result->mIsHavePin = mIsHavePin;
@@ -63,28 +63,28 @@ bool NodeType::initPortTypes()
 
 bool NodeType::initGraphics()
 {
-	return initSdf() && initPorts() && initBooleanProperties();
+	return initQml() && initPorts() && initBooleanProperties();
 }
 
-bool NodeType::initSdf()
+bool NodeType::initQml()
 {
-	QDomElement sdfElement = mGraphics.firstChildElement("picture");
-	if (!sdfElement.isNull()) {
-		mWidth = sdfElement.attribute("sizex").toInt();
-		mHeight = sdfElement.attribute("sizey").toInt();
-		mSdfDomElement = sdfElement;
+	QDomElement qmlElement = mGraphics.firstChildElement("picture");
+	if (!qmlElement.isNull()) {
+		mWidth = qmlElement.attribute("sizex").toInt();
+		mHeight = qmlElement.attribute("sizey").toInt();
+		mQmlDomElement = qmlElement;
 		mVisible = true;
 	} else
 		mVisible = false;
 	return true;
 }
 
-void NodeType::generateSdf() const
+void NodeType::generateQml() const
 {
 	mDiagram->editor()->xmlCompiler()->addResource("\t<file>generated/shapes/" + resourceName("Class") + "</file>\n");
 
 	OutFile out("generated/shapes/" + resourceName("Class"));
-	mSdfDomElement.save(out(), 1);
+	mQmlDomElement.save(out(), 1);
 }
 
 bool NodeType::initPorts()
@@ -165,10 +165,10 @@ bool NodeType::initBooleanProperties()
 
 void NodeType::generateCode(OutFile &out)
 {
-	generateSdf();
+	generateQml();
 
 	QString const className = NameNormalizer::normalize(qualifiedName());
-	bool hasSdf = false;
+	bool hasQml = false;
 
 	out() << "\tclass " << className << " : public qReal::ElementImpl\n\t{\n"
 			<< "\tpublic:\n";
@@ -186,7 +186,7 @@ void NodeType::generateCode(OutFile &out)
 	out () << "\t\tvoid init(qReal::LabelFactoryInterface &, QList<qReal::LabelInterface*> &) {}\n\n"
 	<< "\t\tvoid init(QRectF &contents, PortFactoryInterface const &portFactory, QList<PortInterface *> &ports\n"
 	<< "\t\t\t\t\t\t\t, qReal::LabelFactoryInterface &factory, QList<qReal::LabelInterface*> &titles\n"
-	<< "\t\t\t\t\t\t\t, qReal::SdfRendererInterface *renderer, qReal::ElementRepoInterface *elementRepo)\n\t\t{\n";
+	<< "\t\t\t\t\t\t\t, qReal::ElementRepoInterface *elementRepo)\n\t\t{\n";
 
 	if (mPorts.empty()) {
 		out() << "\t\t\tQ_UNUSED(portFactory);\n";
@@ -197,13 +197,13 @@ void NodeType::generateCode(OutFile &out)
 		out() << "\t\t\tQ_UNUSED(titles);\n"
 			<<"\t\t\tQ_UNUSED(factory);\n";
 
-	QFile sdfFile("generated/shapes/" + className + "Class.sdf");
-	if (sdfFile.exists()) {
-		out() << "\t\t\tmRenderer = renderer;\n"
-				"\t\t\tmRenderer->load(QString(\":/generated/shapes/" << className << "Class.sdf\"));\n"
-				<< "\t\t\tmRenderer->setElementRepo(elementRepo);\n";
-		hasSdf = true;
-	}
+//	QFile sdfFile("generated/shapes/" + className + "Class.qml");
+//	if (sdfFile.exists()) {
+//		out() << "\t\t\tmRenderer = renderer;\n"
+//				"\t\t\tmRenderer->load(QString(\":/generated/shapes/" << className << "Class.sdf\"));\n"
+//				<< "\t\t\tmRenderer->setElementRepo(elementRepo);\n";
+//		hasQml = true;
+//	}
 
 	out() << "\t\t\tcontents.setWidth(" << mWidth << ");\n"
 	<< "\t\t\tcontents.setHeight(" << mHeight << ");\n";
@@ -223,9 +223,9 @@ void NodeType::generateCode(OutFile &out)
 	out() << "\t\t~" << className << "() {}\n\n"
 	<< "\t\tvoid paint(QPainter *painter, QRectF &contents)\n\t\t{\n";
 
-	if (hasSdf) {
-		out() << "\t\t\tmRenderer->render(painter, contents);\n";
-	}
+//	if (hasQml) {
+//		out() << "\t\t\tmRenderer->render(painter, contents);\n";
+//	}
 
 	out() << "\t\t}\n\n";
 
@@ -235,8 +235,8 @@ void NodeType::generateCode(OutFile &out)
 	<< "\t\tvoid drawStartArrow(QPainter *) const {}\n"
 	<< "\t\tvoid drawEndArrow(QPainter *) const {}\n\n"
 
-	<< "\t\tvoid updateData(qReal::ElementRepoInterface *repo) const\n\t\t{\n"
-	<< "\t\t\tmRenderer->setElementRepo(repo);\n";
+	<< "\t\tvoid updateData(qReal::ElementRepoInterface *repo) const\n\t\t{\n";
+//	<< "\t\t\tmRenderer->setElementRepo(repo);\n";
 
 	if (mLabels.isEmpty()) {
 		out() << "\t\t\tQ_UNUSED(repo);\n";
@@ -338,9 +338,9 @@ void NodeType::generateCode(OutFile &out)
 		out() << "\t\tQStringList mBonusContextMenuFields;\n";
 	}
 
-	if (hasSdf) {
-		out() << "\t\tqReal::SdfRendererInterface *mRenderer;\n";
-	}
+//	if (hasQml) {
+//		out() << "\t\tqReal::SdfRendererInterface *mRenderer;\n";
+//	}
 
 	foreach (Label *label, mLabels) {
 		label->generateCodeForFields(out);

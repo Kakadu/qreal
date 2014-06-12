@@ -196,13 +196,12 @@ bool EdgeType::initLabel(Label *label, QDomElement const &element, int const &co
 
 void EdgeType::generateGraphics() const
 {
-	QString sdfType = mLineType;
-	sdfType.remove("Qt::");
-	sdfType.remove("Line").toLower();
+	QString lineType = mLineType;
+	lineType.remove("Qt::").remove("Line").toLower();
 
 	OutFile out("generated/shapes/" + resourceName("Class"));
 	out() << "<picture sizex=\"100\" sizey=\"60\" >\n"
-			<< "\t<line fill=\""<< mLineColor.name() << "\" stroke-style=\"" << sdfType << "\" stroke=\""
+			<< "\t<line fill=\""<< mLineColor.name() << "\" stroke-style=\"" << lineType << "\" stroke=\""
 			<< mLineColor.name() <<"\" y1=\"0\" "
 			<< "x1=\"0\" y2=\"60\" stroke-width=\"2\" x2=\"100\" fill-style=\"solid\" />\n" << "</picture>";
 	mDiagram->editor()->xmlCompiler()->addResource("\t<file>generated/shapes/" + resourceName("Class") + "</file>\n");
@@ -229,7 +228,7 @@ void EdgeType::generateCode(OutFile &out)
 
 	out() << "\t\tvoid init(QRectF &, PortFactoryInterface const &, QList<PortInterface *> &,\n"
 	<< "\t\t\t\t\t\t\t\t\t\t\tqReal::LabelFactoryInterface &, QList<qReal::LabelInterface *> &,\n"
-	<< "\t\t\t\t\t\t\t\t\t\t\tqReal::SdfRendererInterface *, qReal::ElementRepoInterface *) {}\n\n"
+	<< "\t\t\t\t\t\t\t\t\t\t\tqReal::ElementRepoInterface *) {}\n\n"
 	<< "\t\tvoid init(qReal::LabelFactoryInterface &factory, QList<qReal::LabelInterface*> &titles)\n\t\t{\n";
 
 	if (!mLabels.isEmpty()) {

@@ -12,7 +12,6 @@
 #include <QtCore/QList>
 #include <QtCore/QTimer>
 
-#include "umllib/sdfRenderer.h"
 #include "umllib/element.h"
 #include "umllib/edgeElement.h"
 #include "umllib/embedded/linkers/embeddedLinker.h"
@@ -23,6 +22,9 @@
 #include "umllib/private/portHandler.h"
 
 #include "umllib/serializationData.h"
+
+class QDeclarativeEngine;
+class QDeclarativeItem;
 
 namespace qReal {
 
@@ -35,14 +37,15 @@ class NodeElement : public Element
 	Q_OBJECT
 
 public:
-	explicit NodeElement(ElementImpl *impl
+	NodeElement(QDeclarativeEngine * const qmlEngine
+			, ElementImpl *impl
 			, Id const &id
 			, qReal::models::GraphicalModelAssistApi &graphicalAssistApi
 			, qReal::models::LogicalModelAssistApi &logicalAssistApi
 			, Exploser &exploser
 			);
 
-	virtual ~NodeElement();
+	~NodeElement() override;
 
 	/**
 	 * Makes copy of current NodeElement.
@@ -189,6 +192,8 @@ private slots:
 	void updateNodeEdges();
 	void initRenderedDiagram();
 
+	void syncQmlItemSize();
+
 private:
 	enum DragState {
 		None
@@ -201,6 +206,8 @@ private:
 		, Bottom
 		, BottomRight
 	};
+
+	void initQml();
 
 	/**
 	 * Resizes node trying to use newContents as new shape
@@ -261,6 +268,8 @@ private:
 	commands::AbstractCommand *changeParentCommand(Id const &newParent, QPointF const &position) const;
 
 	Exploser &mExploser;
+	QDeclarativeEngine *mQmlEngine;
+	QDeclarativeItem *mQmlItem;
 
 	ContextMenuAction mSwitchGridAction;
 
@@ -279,8 +288,6 @@ private:
 	QSet<PossibleEdgeType> mPossibleEdgeTypes;
 
 	QTransform mTransform;
-
-	SdfRenderer *mRenderer;
 
 	bool mIsExpanded;
 

@@ -446,8 +446,9 @@ QIcon InterpreterEditorManager::icon(Id const &id) const
 	}
 
 	classDoc.appendChild(classDoc.importNode(sdfElement, true));
-	SdfIconEngineV2 * const engine = new SdfIconEngineV2(classDoc);
-	return QIcon(engine);
+//	SdfIconEngineV2 * const engine = new SdfIconEngineV2(classDoc);
+//	return QIcon(engine);
+	return QIcon();
 }
 
 ElementImpl *InterpreterEditorManager::elementImpl(Id const &id) const

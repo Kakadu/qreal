@@ -5,7 +5,6 @@
 #include <QtCore/QString>
 #include <QtGui/QIcon>
 
-#include "editorPluginInterface/sdfRendererInterface.h"
 #include "editorPluginInterface/elementImpl.h"
 #include "editorPluginInterface/listenerInterface.h"
 
@@ -19,7 +18,7 @@ public:
 	struct ExplosionData
 	{
 	public:
-		ExplosionData(QString targetDiagram, QString targetElement
+		ExplosionData(QString const &targetDiagram, QString const &targetElement
 				, bool isReusable, bool requiresImmediateLinkage)
 			: targetDiagram(targetDiagram)
 			, targetElement(targetElement)

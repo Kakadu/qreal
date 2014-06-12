@@ -3889,17 +3889,29 @@
 <context>
     <name>qReal::InterpreterEditorManager</name>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="pluginManager/interpreterEditorManager.cpp" line="843"/>
+=======
+        <location filename="pluginManager/interpreterEditorManager.cpp" line="853"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Deleted</source>
         <translation>Удалено</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="pluginManager/interpreterEditorManager.cpp" line="849"/>
+=======
+        <location filename="pluginManager/interpreterEditorManager.cpp" line="859"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Existed</source>
         <translation>Используется</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="pluginManager/interpreterEditorManager.cpp" line="851"/>
+=======
+        <location filename="pluginManager/interpreterEditorManager.cpp" line="861"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Renamed to </source>
         <translation>Переименовано в </translation>
     </message>
@@ -3950,7 +3962,11 @@
         <translation type="obsolete">Выберите папку с сохранением, которое хотите открыть</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="944"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="936"/>
+>>>>>>> Qml code supported on qreal scene
         <source>About QReal</source>
         <translation>О QReal</translation>
     </message>
@@ -4091,87 +4107,155 @@
         <translation type="obsolete">Обработка завершена</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="153"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="153"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Start test</source>
         <translation>Начать тест</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="156"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="156"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Finish test</source>
         <translation>Завершить тест</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="1133"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="1123"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Text Editor</source>
         <translation>Текстовый редактор</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="1410"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="1400"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Open project</source>
         <translation>Открыть проект</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="1411"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="1401"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Save project</source>
         <translation>Сохранить проект</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="1412"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="1402"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Save project as</source>
         <translation>Сохранить проект как</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="1413"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="1403"/>
+>>>>>>> Qml code supported on qreal scene
         <source>New project</source>
         <translation>Создать проект</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="1414"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="1404"/>
+>>>>>>> Qml code supported on qreal scene
         <source>New diagram</source>
         <translation>Создать диаграмму</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="1415"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="1405"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Undo</source>
         <translation>Отменить</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="1416"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="1406"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Redo</source>
         <translation>Повторить</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="1417"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="1407"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Zoom In</source>
         <translation>Приблизить</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="1418"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="1408"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Zoom Out</source>
         <translation>Отдалить</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="1419"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="1409"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Close current tab</source>
         <translation>Закрыть текущую вкладку</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="1420"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="1410"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Close all tabs</source>
         <translation>Закрыть все вкладки</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="1421"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="1411"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Print</source>
         <translation>Печать</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="1422"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="1412"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Find</source>
         <translation>Найти</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="2266"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="2261"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Getting Started</source>
         <translation>Добро пожаловать!</translation>
     </message>
@@ -4180,9 +4264,15 @@
         <translation type="obsolete">Добро пожаловать!</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="1098"/>
         <location filename="mainWindow/mainWindow.cpp" line="1113"/>
         <location filename="mainWindow/mainWindow.cpp" line="1141"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="1088"/>
+        <location filename="mainwindow/mainWindow.cpp" line="1103"/>
+        <location filename="mainwindow/mainWindow.cpp" line="1131"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Shape Editor</source>
         <translation>Редактор формы фигур</translation>
     </message>
@@ -4191,17 +4281,29 @@
         <translation type="obsolete">Выберите файл для сохранения</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="2101"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="2107"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Recent projects</source>
         <translation>Недавние проекты</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="2132"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="2138"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Save File</source>
         <translation>Сохранить файл</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="2132"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="2138"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Images (*.png *.jpg)</source>
         <translation>Изображения (*.png *.jpg)</translation>
     </message>
@@ -4222,7 +4324,11 @@
         <translation type="obsolete">Выберите Hascol-файл для импорта</translation>
     </message>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="mainWindow/mainWindow.cpp" line="1646"/>
+=======
+        <location filename="mainwindow/mainWindow.cpp" line="1631"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Gestures Show</source>
         <translation>Жесты мышью</translation>
     </message>
@@ -4252,7 +4358,11 @@
 <context>
     <name>qReal::NodeElement</name>
     <message>
+<<<<<<< 392e7e03e54370aab8e1537a4a64996ef98da36d
         <location filename="umllib/nodeElement.cpp" line="41"/>
+=======
+        <location filename="umllib/nodeElement.cpp" line="44"/>
+>>>>>>> Qml code supported on qreal scene
         <source>Switch on grid</source>
         <translation>Включить сетку</translation>
     </message>

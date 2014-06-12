@@ -22,7 +22,7 @@ public:
 
 private:
 	QList<Port*> mPorts;
-	QDomElement mSdfDomElement;
+	QDomElement mQmlDomElement;
 	QDomElement mPortsDomElement;
 	bool mIsPin;
 	bool mIsHavePin;
@@ -33,8 +33,8 @@ private:
 	virtual bool initDividability();
 	virtual bool initPortTypes();
 
-	bool initSdf();
-	void generateSdf() const;
+	bool initQml();
+	void generateQml() const;
 
 	bool initPorts();
 	bool initPointPorts(QDomElement const &portsElement);

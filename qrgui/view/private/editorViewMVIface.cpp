@@ -10,8 +10,9 @@
 
 using namespace qReal;
 
-EditorViewMViface::EditorViewMViface(EditorView *view, EditorViewScene *scene)
+EditorViewMViface::EditorViewMViface(QDeclarativeEngine *qmlEngine, EditorView *view, EditorViewScene *scene)
 	: QAbstractItemView(0)
+	, mQmlEngine(qmlEngine)
 	, mScene(scene)
 	, mView(view)
 	, mGraphicalAssistApi(nullptr)
@@ -147,7 +148,7 @@ void EditorViewMViface::rowsInserted(QModelIndex const &parent, int start, int e
 		ElementImpl * const elementImpl = mScene->mainWindow()->editorManager().elementImpl(currentId);
 		Element *elem = elementImpl->isNode()
 				? dynamic_cast<Element *>(
-						new NodeElement(elementImpl, currentId, *mGraphicalAssistApi, *mLogicalAssistApi, *mExploser)
+						new NodeElement(mQmlEngine, elementImpl, currentId, *mGraphicalAssistApi, *mLogicalAssistApi, *mExploser)
 						)
 				: dynamic_cast<Element *>(
 						new EdgeElement(elementImpl, currentId, *mGraphicalAssistApi, *mLogicalAssistApi)

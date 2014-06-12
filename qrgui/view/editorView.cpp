@@ -9,7 +9,7 @@ using namespace qReal;
 int const zoomAnimationInterval = 20;
 int const zoomAnimationTimes = 4;
 
-EditorView::EditorView(QWidget *parent)
+EditorView::EditorView(QDeclarativeEngine *qmlEngine, QWidget *parent)
 	: QGraphicsView(parent)
 	, mMouseOldPosition()
 	, mWheelPressed(false)
@@ -26,7 +26,7 @@ EditorView::EditorView(QWidget *parent)
 	setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
 	setResizeAnchor(QGraphicsView::AnchorUnderMouse);
 
-	mMVIface = new EditorViewMViface(this, mScene);
+	mMVIface = new EditorViewMViface(qmlEngine, this, mScene);
 	setScene(mScene);
 
 	setAcceptDrops(true);
