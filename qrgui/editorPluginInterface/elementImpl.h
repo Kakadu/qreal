@@ -4,6 +4,7 @@
 #include <QtCore/QList>
 #include <QtCore/QRectF>
 #include <QtCore/QPointF>
+#include <QtCore/QUrl>
 #include <QtGui/QPainter>
 
 #include <qrkernel/ids.h>
@@ -44,11 +45,12 @@ public:
 			, PortFactoryInterface const &portFactory
 			, QList<PortInterface *> &ports
 			, LabelFactoryInterface &labelFactory
-			, QList<LabelInterface *> &labels
-			, ElementRepoInterface *elementRepo = 0) = 0;
+			, QList<LabelInterface *> &labels) = 0;
 	virtual void init(LabelFactoryInterface &factory
 			, QList<LabelInterface*> &titles) = 0;
-	virtual void paint(QPainter *painter, QRectF &contents) = 0;
+
+	virtual QUrl qmlUrl() const = 0;
+
 	virtual void updateData(ElementRepoInterface *repo) const = 0;
 	virtual bool isNode() const = 0;
 	virtual bool isResizeable() const = 0;

@@ -227,8 +227,7 @@ void EdgeType::generateCode(OutFile &out)
 	}
 
 	out() << "\t\tvoid init(QRectF &, PortFactoryInterface const &, QList<PortInterface *> &,\n"
-	<< "\t\t\t\t\t\t\t\t\t\t\tqReal::LabelFactoryInterface &, QList<qReal::LabelInterface *> &,\n"
-	<< "\t\t\t\t\t\t\t\t\t\t\tqReal::ElementRepoInterface *) {}\n\n"
+	<< "\t\t\t\t\t\t\t\t\t\t\tqReal::LabelFactoryInterface &, QList<qReal::LabelInterface *> &) {}\n\n"
 	<< "\t\tvoid init(qReal::LabelFactoryInterface &factory, QList<qReal::LabelInterface*> &titles)\n\t\t{\n";
 
 	if (!mLabels.isEmpty()) {
@@ -239,8 +238,8 @@ void EdgeType::generateCode(OutFile &out)
 
 	out() << "\t\t}\n\n"
 	<< "\t\tvirtual ~" << className << "() {}\n\n"
-	<< "\t\tqReal::ElementImpl *clone() { return NULL; }\n"
 	<< "\t\tvoid paint(QPainter *, QRectF &){}\n"
+	<< "\t\tQUrl qmlUrl() const { return QUrl(\"qrc:/generated/shapes/" + resourceName("Class") + "\"); }\n"
 	<< "\t\tbool isNode() const { return false; }\n"
 	<< "\t\tbool isResizeable() const { return true; }\n"
 	<< "\t\tbool isContainer() const { return false; }\n"

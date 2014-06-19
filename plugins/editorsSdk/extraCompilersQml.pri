@@ -16,12 +16,12 @@ defineTest(addExtraCompiler) {
 	return(true)
 }
 
-SDF_FILES = $$files(../$$QREAL_EDITOR_NAME$$quote(/generated/shapes/*.sdf))
+QML_FILES = $$files(../$$QREAL_EDITOR_NAME$$quote(/generated/shapes/*.qml))
 
-for(sdfFile, SDF_FILES) {
-	FILE_NAME_LONG = $${sdfFile}
+for(qmlFile, QML_FILES) {
+	FILE_NAME_LONG = $${qmlFile}
 	COMPILER_NAME_LONG = $$basename(FILE_NAME_LONG)
 	COMPILER_NAME = $$section(COMPILER_NAME_LONG,".",0,0)
-	FILE_NAME = $$quote(generated/shapes/)$$COMPILER_NAME$$quote(.sdf)
+	FILE_NAME = $$quote(generated/shapes/)$$COMPILER_NAME$$quote(.qml)
 	addExtraCompiler($$COMPILER_NAME, $$FILE_NAME)
 }

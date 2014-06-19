@@ -84,7 +84,7 @@ void NodeType::generateQml() const
 	mDiagram->editor()->xmlCompiler()->addResource("\t<file>generated/shapes/" + resourceName("Class") + "</file>\n");
 
 	OutFile out("generated/shapes/" + resourceName("Class"));
-	mQmlDomElement.save(out(), 1);
+	out() << mQmlDomElement.text();
 }
 
 bool NodeType::initPorts()
@@ -168,7 +168,6 @@ void NodeType::generateCode(OutFile &out)
 	generateQml();
 
 	QString const className = NameNormalizer::normalize(qualifiedName());
-	bool hasQml = false;
 
 	out() << "\tclass " << className << " : public qReal::ElementImpl\n\t{\n"
 			<< "\tpublic:\n";
@@ -185,8 +184,7 @@ void NodeType::generateCode(OutFile &out)
 
 	out () << "\t\tvoid init(qReal::LabelFactoryInterface &, QList<qReal::LabelInterface*> &) {}\n\n"
 	<< "\t\tvoid init(QRectF &contents, PortFactoryInterface const &portFactory, QList<PortInterface *> &ports\n"
-	<< "\t\t\t\t\t\t\t, qReal::LabelFactoryInterface &factory, QList<qReal::LabelInterface*> &titles\n"
-	<< "\t\t\t\t\t\t\t, qReal::ElementRepoInterface *elementRepo)\n\t\t{\n";
+	<< "\t\t\t\t\t\t\t, qReal::LabelFactoryInterface &factory, QList<qReal::LabelInterface*> &titles)\n\t\t{\n";
 
 	if (mPorts.empty()) {
 		out() << "\t\t\tQ_UNUSED(portFactory);\n";
@@ -196,14 +194,6 @@ void NodeType::generateCode(OutFile &out)
 	if (mLabels.empty())
 		out() << "\t\t\tQ_UNUSED(titles);\n"
 			<<"\t\t\tQ_UNUSED(factory);\n";
-
-//	QFile sdfFile("generated/shapes/" + className + "Class.qml");
-//	if (sdfFile.exists()) {
-//		out() << "\t\t\tmRenderer = renderer;\n"
-//				"\t\t\tmRenderer->load(QString(\":/generated/shapes/" << className << "Class.sdf\"));\n"
-//				<< "\t\t\tmRenderer->setElementRepo(elementRepo);\n";
-//		hasQml = true;
-//	}
 
 	out() << "\t\t\tcontents.setWidth(" << mWidth << ");\n"
 	<< "\t\t\tcontents.setHeight(" << mHeight << ");\n";
@@ -218,25 +208,17 @@ void NodeType::generateCode(OutFile &out)
 
 	out() << "\t\t}\n\n";
 
-	out() << "\t\t qReal::ElementImpl *clone() { return NULL; }\n";
+	out() << "\t\t~" << className << "() {}\n\n";
 
-	out() << "\t\t~" << className << "() {}\n\n"
-	<< "\t\tvoid paint(QPainter *painter, QRectF &contents)\n\t\t{\n";
-
-//	if (hasQml) {
-//		out() << "\t\t\tmRenderer->render(painter, contents);\n";
-//	}
-
-	out() << "\t\t}\n\n";
-
-	out() << "\t\tQt::PenStyle getPenStyle() const { return Qt::SolidLine; }\n\n"
+	out()
+	<< "\t\tQUrl qmlUrl() const { return QUrl(\"qrc:/generated/shapes/" + resourceName("Class") + "\"); }\n"
+	<< "\t\tQt::PenStyle getPenStyle() const { return Qt::SolidLine; }\n\n"
 	<< "\t\tint getPenWidth() const { return 0; }\n\n"
 	<< "\t\tQColor getPenColor() const { return QColor(); }\n\n"
 	<< "\t\tvoid drawStartArrow(QPainter *) const {}\n"
 	<< "\t\tvoid drawEndArrow(QPainter *) const {}\n\n"
 
 	<< "\t\tvoid updateData(qReal::ElementRepoInterface *repo) const\n\t\t{\n";
-//	<< "\t\t\tmRenderer->setElementRepo(repo);\n";
 
 	if (mLabels.isEmpty()) {
 		out() << "\t\t\tQ_UNUSED(repo);\n";
@@ -337,10 +319,6 @@ void NodeType::generateCode(OutFile &out)
 	if (!mBonusContextMenuFields.empty()) {
 		out() << "\t\tQStringList mBonusContextMenuFields;\n";
 	}
-
-//	if (hasQml) {
-//		out() << "\t\tqReal::SdfRendererInterface *mRenderer;\n";
-//	}
 
 	foreach (Label *label, mLabels) {
 		label->generateCodeForFields(out);

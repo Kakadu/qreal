@@ -13,7 +13,7 @@ namespace qrmc {
 
 		virtual Port* clone() const;
 
-		virtual QString generateSdf(MetaCompiler *compiler) const;
+		virtual QString generateQml(MetaCompiler *compiler) const;
 		virtual QString generateInit(MetaCompiler *compiler) const;
 
 	private:

@@ -47,45 +47,46 @@ class InterpreterElementImpl : public ElementImpl
 public:
 	InterpreterElementImpl(qrRepo::RepoApi *repo, Id const &metaId);
 	void init(QRectF &contents, PortFactoryInterface const &portFactory, QList<PortInterface *> &ports
-			, LabelFactoryInterface &labelFactory, QList<LabelInterface *> &labels
-			, ElementRepoInterface *elementRepo = 0);
-	void init(LabelFactoryInterface &labelFactory, QList<LabelInterface *> &labels);
-	void paint(QPainter *painter, QRectF &contents);
-	void updateData(ElementRepoInterface *repo) const;
-	bool isNode() const;
-	bool isResizeable() const;
-	Qt::PenStyle getPenStyle() const;
-	int getPenWidth() const;
-	QColor getPenColor() const;
-	void drawStartArrow(QPainter *painter) const;
-	void drawEndArrow(QPainter *painter) const;
+			, LabelFactoryInterface &labelFactory, QList<LabelInterface *> &labels) override;
+	void init(LabelFactoryInterface &labelFactory, QList<LabelInterface *> &labels) override;
 
-	bool isDividable() const;
+	QUrl qmlUrl() const override;
+
+	void updateData(ElementRepoInterface *repo) const override;
+	bool isNode() const override;
+	bool isResizeable() const override;
+	Qt::PenStyle getPenStyle() const override;
+	int getPenWidth() const override;
+	QColor getPenColor() const override;
+	void drawStartArrow(QPainter *painter) const override;
+	void drawEndArrow(QPainter *painter) const override;
+
+	bool isDividable() const override;
 
 	/*Container properties*/
 	bool hasContainerProperty(QString const &property) const;
-	bool isContainer() const;
-	bool isSortingContainer() const;
-	QVector<int> sizeOfForestalling() const;
-	int sizeOfChildrenForestalling() const;
-	bool hasMovableChildren() const;
-	bool minimizesToChildren() const;
-	bool maximizesChildren() const;
+	bool isContainer() const override;
+	bool isSortingContainer() const override;
+	QVector<int> sizeOfForestalling() const override;
+	int sizeOfChildrenForestalling() const override;
+	bool hasMovableChildren() const override;
+	bool minimizesToChildren() const override;
+	bool maximizesChildren() const override;
 
-	QStringList fromPortTypes() const;
-	QStringList toPortTypes() const;
+	QStringList fromPortTypes() const override;
+	QStringList toPortTypes() const override;
 
-	enums::linkShape::LinkShape shapeType() const;
+	enums::linkShape::LinkShape shapeType() const override;
 
-	bool isPort() const;
-	bool hasPin() const;
+	bool isPort() const override;
+	bool hasPin() const override;
 
-	bool createChildrenFromMenu() const;
+	bool createChildrenFromMenu() const override;
 
-	QList<double> border() const;
+	QList<double> border() const override;
 
-	QStringList bonusContextMenuFields() const;
-	void updateRendererContent(QString const &shape);
+	QStringList bonusContextMenuFields() const override;
+	void updateRendererContent(QString const &shape) override;
 
 private:
 	void initPointPorts(PortFactoryInterface const &factory, QList<PortInterface *> &ports

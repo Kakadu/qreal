@@ -56,7 +56,7 @@ QString LinePort::generate(QString const &lineTemplate, bool isScaled) const
 	return result;
 }
 
-QString LinePort::generateSdf(MetaCompiler *compiler) const
+QString LinePort::generateQml(MetaCompiler *compiler) const
 {
 	QString linePortLine = compiler->getTemplateUtils(linePortTag);
 	return generate(linePortLine, true);

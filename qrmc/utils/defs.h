@@ -42,7 +42,7 @@ QString const getUsagesLineTag = "@@GetUsedTypesLine@@";
 QString const getIsNodeOrEdgeLineTag = "@@IsNodeOrEdgeLine@@";
 QString const getEnumsLineTag = "@@GetEnumValuesLine@@";
 QString const getPossibleEdgesLineTag = "@@GetPossibleEdgesLine@@";
-QString const sdfPortsTag = "@@PortsSdf@@";
+QString const qmlPortsTag = "@@PortsQml@@";
 QString const linePortTag = "@@LinePort@@";
 QString const pointPortTag = "@@PointPort@@";
 QString const portsTag = "@@Ports@@";
@@ -115,7 +115,7 @@ QString const forestallingSizeTag = "@@SizeOfForestalling@@";
 QString const childrenForestallingSizeTag = "@@SizeOfChildrenForestalling@@";
 QString const isPortTag = "@@IsPort@@";
 QString const hasPinTag = "@@HasPin@@";
-QString const lineSdfTag = "@@LineSdf@@";
+QString const lineQmlTag = "@@LineQml@@";
 QString const lineTypeTag = "@@LineType@@";
 QString const isResizeable = "@@IsResizeable@@";
 QString const xCoordIsScalable = "@@XCoordIsScalable@@";
@@ -123,7 +123,7 @@ QString const yCoordIsScalable = "@@YCoordIsScalable@@";
 
 QString const nodesListTag = "@@NodesList@@";
 QString const edgesListTag = "@@EdgesList@@";
-QString const sdfFileTag = "@@SdfFile@@";
+QString const qmlFileTag = "@@QmlFile@@";
 QString const fileNameTag = "@@Filename@@";
 
 QString const arrowTemplateTag = "@@Arrow@@";

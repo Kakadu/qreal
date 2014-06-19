@@ -25,7 +25,7 @@ namespace qrmc {
 		void initLabels();
 	private:
 
-		void generateSdf() const;
+		void generateQml() const;
 		void generateArrows(QString &edgeClass) const;
 		void generateArrowEnd(QString &edgeClass, QString const &arrowEnd,
 							  QString const &customTag, QString const &brushTag) const;

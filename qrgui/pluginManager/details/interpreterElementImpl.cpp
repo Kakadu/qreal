@@ -129,11 +129,12 @@ void InterpreterElementImpl::initLinePorts(PortFactoryInterface const &factory, 
 	}
 }
 
-void InterpreterElementImpl::init(QRectF &contents, PortFactoryInterface const &portFactory
-		, QList<PortInterface *> &ports, LabelFactoryInterface &labelFactory
-		, QList<LabelInterface *> &labels, ElementRepoInterface *elementRepo)
+void InterpreterElementImpl::init(QRectF &contents
+		, PortFactoryInterface const &portFactory
+		, QList<PortInterface *> &ports
+		, LabelFactoryInterface &labelFactory
+		, QList<LabelInterface *> &labels)
 {
-	Q_UNUSED(elementRepo);
 	if (mId.element() == "MetaEntityNode") {
 		mGraphics.setContent(mEditorRepoApi->stringProperty(mId, "shape"));
 		QDomDocument classDoc;
@@ -185,13 +186,10 @@ void InterpreterElementImpl::init(LabelFactoryInterface &labelFactory, QList<Lab
 	}
 }
 
-void InterpreterElementImpl::paint(QPainter *painter, QRectF &contents)
+QUrl InterpreterElementImpl::qmlUrl() const
 {
-	if (mId.element() == "MetaEntityNode") {
-		if(!mGraphics.childNodes().isEmpty()) {
-//			mRenderer->render(painter, contents);
-		}
-	}
+	/// @todo:
+	return QUrl("qrc:/default.qml");
 }
 
 QStringList InterpreterElementImpl::getListOfStr(QString const &labelText) const

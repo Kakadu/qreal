@@ -68,7 +68,7 @@ NodeElement::NodeElement(QDeclarativeEngine * const qmlEngine
 
 	QList<PortInterface *> ports;
 	PortFactory portFactory;
-	mElementImpl->init(mContents, portFactory, ports, labelFactory, titles, this);
+	mElementImpl->init(mContents, portFactory, ports, labelFactory, titles);
 	mPortHandler = new PortHandler(this, mGraphicalAssistApi, ports);
 
 	foreach (LabelInterface * const labelInterface, titles) {
@@ -121,7 +121,7 @@ NodeElement::~NodeElement()
 
 void NodeElement::initQml()
 {
-	QDeclarativeComponent component(mQmlEngine, QUrl("qrc:/generated/shapes/" + mId.element() + "Class.qml"));
+	QDeclarativeComponent component(mQmlEngine, mElementImpl->qmlUrl());
 	if (component.isReady()) {
 		mQmlItem = qobject_cast<QDeclarativeItem *>(component.create());
 	} else {

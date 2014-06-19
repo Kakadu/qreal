@@ -33,4 +33,4 @@ qrxc_resource.variable_out = RESOURCES
 
 QMAKE_EXTRA_COMPILERS += qrxc_resource
 
-include(extraCompilersSdf.pri)
+include(extraCompilersQml.pri)

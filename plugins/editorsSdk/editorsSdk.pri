@@ -2,8 +2,7 @@ INCLUDEPATH += \
 	$$PWD/../.. \
 	$$PWD/../../qrgui \
 
-HEADERS		+= \
-	$$ROOT/qrgui/editorPluginInterface/sdfRendererInterface.h \
+HEADERS += \
 	$$ROOT/qrgui/editorPluginInterface/elementImpl.h \
 	$$ROOT/qrgui/editorPluginInterface/elementRepoInterface.h \
 	$$ROOT/qrgui/editorPluginInterface/labelInterface.h \

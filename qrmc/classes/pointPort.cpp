@@ -21,7 +21,7 @@ Port* PointPort::clone() const
 	return result;
 }
 
-QString PointPort::generateSdf(MetaCompiler *compiler) const
+QString PointPort::generateQml(MetaCompiler *compiler) const
 {
 	QString result = compiler->getTemplateUtils(pointPortTag);
 	result.replace(pointXTag, QString::number(mX * mWidth)).replace(pointYTag, QString::number(mY * mHeight));
