@@ -16,6 +16,7 @@
 #include "nodeType.h"
 #include "portType.h"
 #include "enumType.h"
+#include "documentLoader.h"
 
 using namespace utils;
 
@@ -76,7 +77,9 @@ Editor* XmlCompiler::loadXmlFile(QDir const &currentDir, QString const &inputXml
 			return NULL;
 		}
 	} else {
-		QDomDocument inputXmlDomDocument = xmlUtils::loadDocument(fullFileName);
+		DocumentLoader loader;
+		QDomDocument const inputXmlDomDocument = loader.load(fullFileName);
+
 		Editor *editor = new Editor(inputXmlDomDocument, this);
 		if (!editor->load(currentDir)) {
 			qDebug() << "ERROR: Failed to load file";

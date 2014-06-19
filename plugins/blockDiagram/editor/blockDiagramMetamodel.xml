@@ -8,15 +8,7 @@
 		<node displayedName="Block Diagram" name="BlockDiagramNode">
 		  <graphics>
 			<picture sizex="200" sizey="200">
-				import QtQuick 1.1
-
-				Rectangle {
-				    width: 200
-				    height: 200
-				    border.width: 1
-				    radius: 12
-				    color: "transparent"
-				}
+				<external file="qml/blockDiagramNode.qml"/>
 			</picture>
 			<labels>
 			  <label x="40" y="10" textBinded="name"/>
