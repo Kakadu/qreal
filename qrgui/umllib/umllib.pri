@@ -5,15 +5,17 @@ HEADERS += \
 	$$PWD/label.h \
 	$$PWD/labelFactory.h \
 	$$PWD/contextMenuAction.h \
+	$$PWD/serializationData.h \
+	$$PWD/qmlIconLoader.h \
 	$$PWD/embedded/linkers/embeddedLinker.h \
 	$$PWD/embedded/linkers/embeddedLinkers.h \
-	$$PWD/serializationData.h \
 	$$PWD/private/sceneGridHandler.h \
 	$$PWD/private/resizeHandler.h \
 	$$PWD/private/umlPortHandler.h \
 	$$PWD/private/borderChecker.h \
 	$$PWD/private/portHandler.h \
 	$$PWD/private/copyHandler.h \
+	$$PWD/private/imagesCache.h \
 	$$PWD/private/resizeCommand.h \
 	$$PWD/private/foldCommand.h \
 	$$PWD/private/reshapeEdgeCommand.h \
@@ -35,15 +37,17 @@ SOURCES += \
 	$$PWD/label.cpp \
 	$$PWD/labelFactory.cpp \
 	$$PWD/contextMenuAction.cpp \
+	$$PWD/serializationData.cpp \
+	$$PWD/qmlIconLoader.cpp \
 	$$PWD/embedded/linkers/embeddedLinker.cpp \
 	$$PWD/embedded/linkers/embeddedLinkers.cpp \
-	$$PWD/serializationData.cpp \
 	$$PWD/private/sceneGridHandler.cpp \
 	$$PWD/private/resizeHandler.cpp \
 	$$PWD/private/umlPortHandler.cpp \
 	$$PWD/private/borderChecker.cpp \
 	$$PWD/private/portHandler.cpp \
 	$$PWD/private/copyHandler.cpp \
+	$$PWD/private/imagesCache.cpp \
 	$$PWD/private/resizeCommand.cpp \
 	$$PWD/private/foldCommand.cpp \
 	$$PWD/private/reshapeEdgeCommand.cpp \

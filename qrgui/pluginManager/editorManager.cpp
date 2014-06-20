@@ -10,6 +10,7 @@
 
 #include "umllib/nodeElement.h"
 #include "umllib/edgeElement.h"
+#include "umllib/qmlIconLoader.h"
 
 using namespace qReal;
 
@@ -252,13 +253,13 @@ QString EditorManager::mouseGesture(const Id &id) const
 QIcon EditorManager::icon(Id const &id) const
 {
 	Q_ASSERT(mPluginsLoaded.contains(id.editor()));
-	return QIcon(); //SdfIconLoader::iconOf(":/generated/shapes/" + id.element() + "Class.sdf");
+	return QmlIconLoader::iconOf("qrc:/generated/shapes/" + id.element() + "Class.qml");
 }
 
 QSize EditorManager::iconSize(Id const &id) const
 {
 	Q_ASSERT(mPluginsLoaded.contains(id.editor()));
-	return QSize();// SdfIconLoader::preferedSizeOf(":/generated/shapes/" + id.element() + "Class.sdf");
+	return QmlIconLoader::preferedSizeOf("qrc:/generated/shapes/" + id.element() + "Class.qml");
 }
 
 ElementImpl *EditorManager::elementImpl(const Id &id) const
