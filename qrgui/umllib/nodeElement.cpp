@@ -125,6 +125,7 @@ void NodeElement::initQml()
 	if (component.isReady()) {
 		mQmlItem = qobject_cast<QDeclarativeItem *>(component.create());
 	} else {
+		qDebug() << "Qml parsing for" << id().toString() << "failed. Reason:" << component.errorString();
 		QDeclarativeComponent defaultComponent(mQmlEngine, QUrl("qrc:/default.qml"));
 		mQmlItem = qobject_cast<QDeclarativeItem *>(defaultComponent.create());
 	}

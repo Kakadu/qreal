@@ -20,7 +20,6 @@ CircleWidget::CircleWidget(QSize const &size, QString const &icon, QWidget *pare
 	int const pictureWidth = pixmap.width();
 
 	// Take picture aspect into account
-	// TODO: move it into shared place and reuse in SdfIconEngineV2
 	QRect const iconRect(QPoint(), iconSize);
 	QRect resultingRect = iconRect;
 	if (targetHeight * pictureWidth < pictureHeight * targetWidth) {

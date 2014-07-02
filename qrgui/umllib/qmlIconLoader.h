@@ -14,10 +14,10 @@ public:
 	/// Configures the only qml icon loader instance to use the given qml engine for rendering icons.
 	static void setQmlEngine(QDeclarativeEngine * const engine);
 
-	/// Returns a pixmap of element in specified sdf-file
+	/// Returns a pixmap of element in specified qml-file
 	static QIcon iconOf(QString const &fileName);
 
-	/// Returns a size of the pixmap of element in specified sdf-file
+	/// Returns a size of the pixmap of element in specified qml-file
 	static QSize preferedSizeOf(QString const &fileName);
 
 private:

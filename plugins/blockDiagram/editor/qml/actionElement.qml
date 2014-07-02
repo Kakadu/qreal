@@ -1,9 +1,9 @@
 import QtQuick 1.1
 
 Rectangle {
-    width: 200
-    height: 200
+    width: 80
+    height: 60
     border.width: 1
     radius: 12
-    color: "transparent"
+    color: "#f8f8f8"
 }
