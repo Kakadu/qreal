@@ -27,6 +27,7 @@ SOURCES += \
 	$$PWD/gridDrawer.cpp \
 	$$PWD/paintWidget.cpp \
 	$$PWD/painterInterface.cpp \
+	$$PWD/itemRenderer.cpp \
 	$$PWD/animatedHighlighter.cpp \
 	$$PWD/itemRenderer.cpp \
 

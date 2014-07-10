@@ -55,6 +55,11 @@
 #include "dialogs/progressDialog/progressDialog.h"
 #include "dialogs/gesturesShow/gesturesWidget.h"
 
+#include "qmlType/canvas.h"
+#include "qmlType/ellipse.h"
+#include "qmlType/line.h"
+#include "qmlType/border.h"
+
 using namespace qReal;
 using namespace qReal::commands;
 using namespace gui;
@@ -90,13 +95,14 @@ MainWindow::MainWindow(QString const &fileToOpen)
 	setWindowTitle("QReal");
 	initSettingsManager();
 	registerMetaTypes();
+    registerQmlTypes();
 	SplashScreen splashScreen(SettingsManager::value("Splashscreen").toBool());
 	splashScreen.setVisible(false);
 	splashScreen.setProgress(5);
 
 	initRecentProjectsMenu();
 	initToolManager();
-	initTabs();
+    initTabs();
 
 	splashScreen.setProgress(20);
 
@@ -275,6 +281,14 @@ void MainWindow::registerMetaTypes()
 	qRegisterMetaTypeStreamOperators<Id>();
 	qRegisterMetaType<IdList>();
 	qRegisterMetaTypeStreamOperators<IdList>();
+}
+
+void MainWindow::registerQmlTypes()
+{
+	qmlRegisterType<qmlTypes::Line>("CustomComponents", 1, 0, "Line");
+	qmlRegisterType<qmlTypes::Ellipse>("CustomComponents",1,0, "Ellipse");
+	qmlRegisterType<Canvas>("trik", 1, 0, "Canvas");
+	qmlRegisterType<qmlTypes::Border>("CustomComponents",1,0,"Border");
 }
 
 void MainWindow::showFindDialog()

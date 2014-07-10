@@ -1,18 +1,25 @@
 import QtQuick 1.1
-
-/// @todo: Add ellipse into qml library
+import CustomComponents 1.0
 Rectangle {
     width: 30
     height: 30
-    border.width: 1
-    radius: width * 0.5
-    color: "white"
-
-    Rectangle {
-		width: parent.width * 2 / 3.0
-		height: parent.height * 2 / 3.0
-        radius: width * 0.5
-        anchors.centerIn: parent
-        color: "black"
+    color: "#f8f8f8"
+    Ellipse{
+        x:parent.width/2
+        y:parent.height/2
+        width: parent.width
+        height: parent.height
+        color: "white"
+        /*border: Border{
+            color: "black"
+            width: 1
+        }*/
+        Ellipse{
+            x:parent.parent.width/2
+            y:parent.parent.height/2
+            width: 2 * parent.width / 3
+            height: 2 * parent.height / 3
+            color: "black"
+        }
     }
 }
