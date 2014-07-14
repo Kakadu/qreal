@@ -1,5 +1,7 @@
 #include "ellipse.h"
 
+using namespace qReal;
+
 QRealEllipse::QRealEllipse(qreal x1, qreal y1, qreal x2, qreal y2, Item* parent)
 		: Item(parent), mRectangleImpl()
 {

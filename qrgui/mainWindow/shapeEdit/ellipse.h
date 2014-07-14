@@ -6,6 +6,8 @@
 
 #include "mainwindow/shapeEdit/item.h"
 
+namespace qReal {
+
 class QRealEllipse : public Item
 {
 public:
@@ -20,3 +22,5 @@ public:
 private:
 	graphicsUtils::RectangleImpl mRectangleImpl;
 };
+
+}

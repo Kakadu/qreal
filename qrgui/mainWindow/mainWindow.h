@@ -320,7 +320,7 @@ private:
 
 	void registerMetaTypes();
 
-    void registerQmlTypes();
+	void registerQmlTypes();
 
 	QListWidget* createSaveListWidget();
 

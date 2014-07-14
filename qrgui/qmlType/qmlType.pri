@@ -1,8 +1,9 @@
 HEADERS += \
-	$$PWD/canvas.h \
-	$$PWD/ellipse.h \
-	$$PWD/line.h \
+	$$PWD/declarativeEllipse.h \
+	$$PWD/declarativeLine.h \
 	$$PWD/border.h \
 
 SOURCES += \
-	$$PWD/canvas.cpp \
+	$$PWD/declarativeLine.cpp \
+	$$PWD/declarativeEllipse.cpp \
+	$$PWD/border.cpp \

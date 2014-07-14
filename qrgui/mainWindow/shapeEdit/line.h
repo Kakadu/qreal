@@ -4,6 +4,8 @@
 
 #include "mainwindow/shapeEdit/item.h"
 
+namespace qReal {
+
 class Line : public Item
 {
 	Q_INTERFACES(AbstractItem)
@@ -29,3 +31,5 @@ public:
 private:
 	graphicsUtils::LineImpl mLineImpl;
 };
+
+}

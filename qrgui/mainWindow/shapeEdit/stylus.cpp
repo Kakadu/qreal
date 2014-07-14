@@ -1,5 +1,5 @@
 #include "stylus.h"
-
+using namespace qReal;
 Stylus::Stylus(qreal x1, qreal y1, Item* parent) : Item(parent), mStylusImpl()
 {
 	mNeedScalingRect = false;

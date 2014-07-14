@@ -13,43 +13,21 @@ class Border : public QDeclarativeItem
 	Q_PROPERTY(int width READ width WRITE setWidth NOTIFY widthChanged)
 
 	public:
-		Border(QDeclarativeItem *parent = 0) :
-				QDeclarativeItem(parent), mWidth(0), mColor(Qt::black)
-	{
-		// Important, otherwise the paint method is never called
-		setFlag(QGraphicsItem::ItemHasNoContents, false);
-	}
+		Border(QDeclarativeItem *parent = 0);
 
-	QColor color()
-	{
-		return mColor;
-	}
+		QColor color();
+		int width();
+		QPen getPen();
 
-	int width()
-	{
-		return mWidth;
-	}
-
-	void setColor(const QColor &color) {
-		if(mColor == color) return;
-		mColor = color;
-		emit colorChanged();
-		update();
-	}
-	void setWidth(int width)
-{
-		if(mWidth == width) return;
-		mWidth = width;
-		emit widthChanged();
-		update();
-	}
+		void setColor(const QColor &color);
+		void setWidth(int width);
 	signals:
 		void colorChanged();
 		void widthChanged();
 
-protected:
-	QColor mColor;
-	int mWidth;
+	protected:
+		QColor mColor;
+		int mWidth;
 };
 
 }
