@@ -1,6 +1,6 @@
 #include "declarativeLine.h"
 
-#include <QtGui\QPainter>
+#include <QtGui/QPainter>
 
 using namespace qmlTypes;
 
@@ -80,8 +80,9 @@ int DeclarativeLine::penWidth() const
 	return mPenWidth;
 }
 
-void DeclarativeLine::setX1(int x1) {
-	if(mX1 != x1) {
+void DeclarativeLine::setX1(int x1)
+{
+	if (mX1 != x1) {
 		mX1 = x1;
 		updateSize();
 		emit x1Changed();
@@ -89,8 +90,9 @@ void DeclarativeLine::setX1(int x1) {
 	}
 }
 
-void DeclarativeLine::setY1(int y1) {
-	if(mY1 != y1) {
+void DeclarativeLine::setY1(int y1)
+{
+	if (mY1 != y1) {
 		mY1 = y1;
 		updateSize();
 		emit y1Changed();
@@ -100,7 +102,7 @@ void DeclarativeLine::setY1(int y1) {
 
 void DeclarativeLine::setX2(int x2)
 {
-	if(mX2 != x2) {
+	if (mX2 != x2) {
 		mX2 = x2;
 		updateSize();
 		emit x2Changed();
@@ -110,7 +112,7 @@ void DeclarativeLine::setX2(int x2)
 
 void DeclarativeLine::setY2(int y2)
 {
-	if(mY2 != y2) {
+	if (mY2 != y2) {
 		mY2 = y2;
 		updateSize();
 		emit y2Changed();
@@ -118,17 +120,17 @@ void DeclarativeLine::setY2(int y2)
 	}
 }
 
-void DeclarativeLine::setColor(const QColor &color) {
-	if(mColor != color) {
+void DeclarativeLine::setColor(QColor const &color) {
+	if (mColor != color) {
 		mColor = color;
 		emit colorChanged();
 		update();
 	}
 }
 
-void DeclarativeLine::setStyle(const QString style)
+void DeclarativeLine::setStyle(QString const style)
 {
-	if(mStyle != style) {
+	if (mStyle != style) {
 		mStyle = style;
 		emit styleChanged();
 		update();
@@ -136,7 +138,7 @@ void DeclarativeLine::setStyle(const QString style)
 }
 
 void DeclarativeLine::setPenWidth(int newWidth) {
-	if(mPenWidth != newWidth) {
+	if (mPenWidth != newWidth) {
 		mPenWidth = newWidth;
 		updateSize();
 		emit penWidthChanged();

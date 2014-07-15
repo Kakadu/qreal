@@ -21,9 +21,11 @@ DeclarativeEllipse::DeclarativeEllipse(QDeclarativeItem *parent)
 void DeclarativeEllipse::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 	painter->setPen(mBorder.pen());
+
 	if(smooth()) {
 		painter->setRenderHint(QPainter::Antialiasing, true);
 	}
+
 	painter->setBrush(mColor);
 	painter->drawEllipse(mX - mWidth / 2, mY - mHeight / 2, mWidth, mHeight);
 }

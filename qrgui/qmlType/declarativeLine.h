@@ -53,9 +53,9 @@ protected:
 	/// Sets the y2 coordinate of the line
 	void setY2(int y);
 	/// Sets the color of the line
-	void setColor(const QColor &color);
+	void setColor(QColor const &color);
 	/// Sets the style of the line
-	void setStyle(const QString style);
+	void setStyle(QString const style);
 	/// Sets the width of the line
 	void setPenWidth(int newWidth);
 	void updateSize();
@@ -76,4 +76,3 @@ protected:
 }
 
 QML_DECLARE_TYPE(qmlTypes::DeclarativeLine)
-

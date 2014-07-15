@@ -69,7 +69,7 @@ void Border::setWidth(int width)
 
 void Border::setStyle(QString const style)
 {
-	if(mStyle != style) {
+	if (mStyle != style) {
 		mStyle = style;
 		emit styleChanged();
 		update();
