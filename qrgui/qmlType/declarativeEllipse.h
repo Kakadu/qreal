@@ -2,7 +2,7 @@
 
 #include <QtDeclarative/QDeclarativeItem>
 
-#include "border.h"
+#include "declarativePen.h"
 
 namespace qmlTypes {
 
@@ -15,7 +15,7 @@ class DeclarativeEllipse : public QDeclarativeItem
 	Q_PROPERTY(int width READ width WRITE setWidth NOTIFY widthChanged)
 	Q_PROPERTY(int height READ height WRITE setHeight NOTIFY heightChanged)
 	Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
-	Q_PROPERTY(Border *border READ border WRITE setBorder NOTIFY borderChanged)
+	Q_PROPERTY(DeclarativePen *border READ border WRITE setBorder NOTIFY borderChanged)
 
 public:
 	explicit DeclarativeEllipse(QDeclarativeItem *parent = 0);
@@ -31,7 +31,7 @@ public:
 	/// Returns the color of the ellipse
 	QColor color() const;
 	/// Returns the pointer to the border, which stores border properties
-	Border *border();
+	DeclarativePen *border();
 
 signals:
 	void xChanged();
@@ -54,7 +54,7 @@ protected:
 	/// Sets the color of the ellipse
 	void setColor(QColor const &color);
 	/// Sets the pointer to border
-	void setBorder(Border* border);
+	void setBorder(DeclarativePen* border);
 
 private:
 	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
@@ -65,7 +65,7 @@ protected:
 	int mWidth;
 	int mHeight;
 	QColor mColor;
-	Border mBorder;
+	DeclarativePen mBorder;
 };
 
 }

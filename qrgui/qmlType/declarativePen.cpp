@@ -1,10 +1,10 @@
-#include "border.h"
+#include "declarativePen.h"
 
 #include <QtGui/QPainter>
 
 using namespace qmlTypes;
 
-Border::Border(QDeclarativeItem *parent)
+DeclarativePen::DeclarativePen(QDeclarativeItem *parent)
 	: QDeclarativeItem(parent)
 	, mStyle("solid")
 	, mWidth(0)
@@ -14,22 +14,22 @@ Border::Border(QDeclarativeItem *parent)
 	setFlag(QGraphicsItem::ItemHasNoContents, false);
 }
 
-QColor Border::color() const
+QColor DeclarativePen::color() const
 {
 	return mColor;
 }
 
-int Border::width() const
+int DeclarativePen::width() const
 {
 	return mWidth;
 }
 
-QString Border::style() const
+QString DeclarativePen::style() const
 {
 	return mStyle;
 }
 
-QPen Border::pen() const
+QPen DeclarativePen::pen() const
 {
 	QPen pen(mColor, mWidth);
 	if (mStyle == "solid") {
@@ -49,7 +49,7 @@ QPen Border::pen() const
 	return pen;
 }
 
-void Border::setColor(QColor const &color)
+void DeclarativePen::setColor(QColor const &color)
 {
 	if (mColor != color) {
 		mColor = color;
@@ -58,7 +58,7 @@ void Border::setColor(QColor const &color)
 	}
 }
 
-void Border::setWidth(int width)
+void DeclarativePen::setWidth(int width)
 {
 	if (mWidth != width) {
 		mWidth = width;
@@ -67,7 +67,7 @@ void Border::setWidth(int width)
 	}
 }
 
-void Border::setStyle(QString const style)
+void DeclarativePen::setStyle(QString const style)
 {
 	if (mStyle != style) {
 		mStyle = style;

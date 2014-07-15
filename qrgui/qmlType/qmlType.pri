@@ -1,9 +1,9 @@
 HEADERS += \
 	$$PWD/declarativeEllipse.h \
 	$$PWD/declarativeLine.h \
-	$$PWD/border.h \
+	$$PWD/declarativePen.h \
 
 SOURCES += \
 	$$PWD/declarativeLine.cpp \
 	$$PWD/declarativeEllipse.cpp \
-	$$PWD/border.cpp \
+	$$PWD/declarativePen.cpp \

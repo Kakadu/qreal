@@ -57,7 +57,7 @@
 
 #include "qmlType/declarativeEllipse.h"
 #include "qmlType/declarativeLine.h"
-#include "qmlType/border.h"
+#include "qmlType/declarativePen.h"
 
 using namespace qReal;
 using namespace qReal::commands;
@@ -286,7 +286,7 @@ void MainWindow::registerQmlTypes()
 {
 	qmlRegisterType<qmlTypes::DeclarativeLine>("CustomComponents", 1, 0, "Line");
 	qmlRegisterType<qmlTypes::DeclarativeEllipse>("CustomComponents", 1, 0, "Ellipse");
-	qmlRegisterType<qmlTypes::Border>("CustomComponents", 1, 0,"Border");
+	qmlRegisterType<qmlTypes::DeclarativePen>("CustomComponents", 1, 0,"Border");
 }
 
 void MainWindow::showFindDialog()

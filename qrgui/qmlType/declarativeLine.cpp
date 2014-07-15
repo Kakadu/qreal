@@ -5,22 +5,19 @@
 using namespace qmlTypes;
 
 DeclarativeLine::DeclarativeLine(QDeclarativeItem *parent)
-	: QDeclarativeItem(parent)
+	: DeclarativePen(parent)
 	, mX1(0)
 	, mY1(0)
 	, mX2(0)
 	, mY2(0)
-	, mColor(Qt::black)
-	, mPenWidth(1)
-	, mStyle("solid")
 {
 	// Important, otherwise the paint method is never called
 	setFlag(QGraphicsItem::ItemHasNoContents, false);
 }
 
-void DeclarativeLine::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void DeclarativeLine::paint(QPainter *painter, QStyleOptionGraphicsItem const *option, QWidget *widget)
 {
-	QPen pen(mColor, mPenWidth);
+	QPen pen(mColor, mWidth);
 	if (mStyle == "solid") {
 		pen.setStyle(Qt::SolidLine);
 	} else if (mStyle == "dot") {
@@ -36,12 +33,12 @@ void DeclarativeLine::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 	}
 
 	painter->setPen(pen);
-	if(smooth()) {
+	if (smooth()) {
 		painter->setRenderHint(QPainter::Antialiasing, true);
 	}
 
-	int x = qMin(mX1, mX2) - mPenWidth / 2;
-	int y = qMin(mY1, mY2) - mPenWidth / 2;
+	int x = qMin(mX1, mX2) - mWidth / 2;
+	int y = qMin(mY1, mY2) - mWidth / 2;
 	painter->drawLine(mX1 - x, mY1 - y, mX2 - x, mY2 - y);
 }
 
@@ -63,21 +60,6 @@ int DeclarativeLine::x2() const
 int DeclarativeLine::y2() const
 {
 	return mY2;
-}
-
-QColor DeclarativeLine::color() const
-{
-	return mColor;
-}
-
-QString DeclarativeLine::style() const
-{
-	return mStyle;
-}
-
-int DeclarativeLine::penWidth() const
-{
-	return mPenWidth;
 }
 
 void DeclarativeLine::setX1(int x1)
@@ -116,32 +98,6 @@ void DeclarativeLine::setY2(int y2)
 		mY2 = y2;
 		updateSize();
 		emit y2Changed();
-		update();
-	}
-}
-
-void DeclarativeLine::setColor(QColor const &color) {
-	if (mColor != color) {
-		mColor = color;
-		emit colorChanged();
-		update();
-	}
-}
-
-void DeclarativeLine::setStyle(QString const style)
-{
-	if (mStyle != style) {
-		mStyle = style;
-		emit styleChanged();
-		update();
-	}
-}
-
-void DeclarativeLine::setPenWidth(int newWidth) {
-	if (mPenWidth != newWidth) {
-		mPenWidth = newWidth;
-		updateSize();
-		emit penWidthChanged();
 		update();
 	}
 }

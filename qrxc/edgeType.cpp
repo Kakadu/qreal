@@ -208,7 +208,7 @@ void EdgeType::generateGraphics() const
 			<< "\t \t x1: 0; y1: 0 \n"
 			<< "\t \t x2: 100; y2: 60 \n"
 			<< "\t \t color: \"" << mLineColor.name().toLower() << "\"\n"
-			<< "\t \t penWidth: 1 \n"
+			<< "\t \t width: 1 \n"
 			<< "\t \t style: \"" << lineType.toLower() << "\"\n"
 			<< "\t} \n"
 			<< "}";

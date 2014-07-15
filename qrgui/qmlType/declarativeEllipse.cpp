@@ -1,5 +1,5 @@
 #include "declarativeEllipse.h"
-#include "border.h"
+#include "declarativePen.h"
 
 #include <QtGui/QPainter>
 
@@ -12,17 +12,17 @@ DeclarativeEllipse::DeclarativeEllipse(QDeclarativeItem *parent)
 	, mWidth(0)
 	, mHeight(0)
 	, mColor(Qt::black)
-	, mBorder(new Border())
+	, mBorder(new DeclarativePen())
 {
 	// Important, otherwise the paint method is never called
 	setFlag(QGraphicsItem::ItemHasNoContents, false);
 }
 
-void DeclarativeEllipse::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void DeclarativeEllipse::paint(QPainter *painter, QStyleOptionGraphicsItem const *option, QWidget *widget)
 {
 	painter->setPen(mBorder.pen());
 
-	if(smooth()) {
+	if (smooth()) {
 		painter->setRenderHint(QPainter::Antialiasing, true);
 	}
 
@@ -55,7 +55,7 @@ QColor DeclarativeEllipse::color() const
 	return mColor;
 }
 
-Border *DeclarativeEllipse::border()
+DeclarativePen *DeclarativeEllipse::border()
 {
 	return &mBorder;
 }
@@ -109,7 +109,7 @@ void DeclarativeEllipse::setColor(QColor const &color)
 	}
 }
 
-void DeclarativeEllipse::setBorder(Border *border)
+void DeclarativeEllipse::setBorder(DeclarativePen *border)
 {
 	if (mBorder.width() != border->width() || mBorder.color() != border->color()) {
 		mBorder.setWidth( border->width());
