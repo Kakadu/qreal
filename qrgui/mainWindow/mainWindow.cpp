@@ -285,9 +285,8 @@ void MainWindow::registerMetaTypes()
 void MainWindow::registerQmlTypes()
 {
 	qmlRegisterType<qmlTypes::DeclarativeLine>("CustomComponents", 1, 0, "Line");
-	qmlRegisterType<qmlTypes::DeclarativeEllipse>("CustomComponents",1,0, "Ellipse");
-	//qmlRegisterType<Canvas>("trik", 1, 0, "Canvas");
-	qmlRegisterType<qmlTypes::Border>("CustomComponents",1,0,"Border");
+	qmlRegisterType<qmlTypes::DeclarativeEllipse>("CustomComponents", 1, 0, "Ellipse");
+	qmlRegisterType<qmlTypes::Border>("CustomComponents", 1, 0,"Border");
 }
 
 void MainWindow::showFindDialog()

@@ -2,7 +2,9 @@
 
 #include "mainwindow/shapeEdit/item.h"
 #include "mainwindow/shapeEdit/line.h"
+
 using namespace qReal;
+
 class LinePort : public Line
 {
 public:

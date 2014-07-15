@@ -33,7 +33,6 @@
 #include "pluginManager/exploser.h"
 
 #include "models/logicalModelAssistApi.h"
-//
 #include "view/propertyEditorView.h"
 #include "controller/controller.h"
 #include "toolPluginInterface/systemEvents.h"
@@ -319,7 +318,6 @@ private:
 	void setDefaultShortcuts();
 
 	void registerMetaTypes();
-
 	void registerQmlTypes();
 
 	QListWidget* createSaveListWidget();

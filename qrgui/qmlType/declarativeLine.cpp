@@ -1,11 +1,18 @@
 #include "declarativeLine.h"
-#include <QPainter>
+
+#include <QtGui\QPainter>
 
 using namespace qmlTypes;
 
-DeclarativeLine::DeclarativeLine(QDeclarativeItem *parent) :
-		QDeclarativeItem(parent), mX1(0), mY1(0), mX2(0), mY2(0),
-		mColor(Qt::black), mPenWidth(1), mStyle("solid")
+DeclarativeLine::DeclarativeLine(QDeclarativeItem *parent)
+	: QDeclarativeItem(parent)
+	, mX1(0)
+	, mY1(0)
+	, mX2(0)
+	, mY2(0)
+	, mColor(Qt::black)
+	, mPenWidth(1)
+	, mStyle("solid")
 {
 	// Important, otherwise the paint method is never called
 	setFlag(QGraphicsItem::ItemHasNoContents, false);
@@ -78,7 +85,6 @@ int DeclarativeLine::penWidth()
 	return mPenWidth;
 }
 
-// Set methods
 void DeclarativeLine::setX1(int x1) {
 	if(mX1 == x1) return;
 	mX1 = x1;

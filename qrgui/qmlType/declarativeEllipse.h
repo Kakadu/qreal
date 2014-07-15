@@ -15,8 +15,6 @@ class DeclarativeEllipse : public QDeclarativeItem
 	Q_PROPERTY(int width READ width WRITE setWidth NOTIFY widthChanged)
 	Q_PROPERTY(int height READ height WRITE setHeight NOTIFY heightChanged)
 	Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
-	Q_PROPERTY(int penWidth READ penWidth WRITE setPenWidth NOTIFY penWidthChanged)
-	Q_PROPERTY(QString style READ style WRITE setStyle NOTIFY styleChanged)
 	Q_PROPERTY(Border *border READ border WRITE setBorder NOTIFY borderChanged)
 
 public:
@@ -30,8 +28,6 @@ public:
 	int width() const;
 	int height() const;
 	QColor color() const;
-	int penWidth() const;
-	QString style() const;
 	Border *border();
 
     // Set methods
@@ -39,10 +35,8 @@ public:
 	void setY(int y);
 	void setWidth(int width);
 	void setHeight(int height);
-	void setColor(const QColor &color);
-	void setStyle(const QString style);
+	void setColor(QColor const &color);
 	void setBorder(Border* border);
-	void setPenWidth(int newWidth);
 
 signals:
 	void xChanged();
@@ -50,8 +44,6 @@ signals:
 	void widthChanged();
 	void heightChanged();
 	void colorChanged();
-	void styleChanged();
-	void penWidthChanged();
 	void borderChanged();
 
 protected:
@@ -62,8 +54,6 @@ protected:
 	int mWidth;
 	int mHeight;
 	QColor mColor;
-	QString mStyle;
-	int mPenWidth;
 	Border mBorder;
 };
 
