@@ -31,46 +31,46 @@ QString Border::style() const
 
 QPen Border::pen() const
 {
-	QPen mPen(mColor, mWidth);
+	QPen pen(mColor, mWidth);
 	if (mStyle == "solid") {
-		mPen.setStyle(Qt::SolidLine);
+		pen.setStyle(Qt::SolidLine);
+	} else if (mStyle == "dot") {
+		pen.setStyle(Qt::DotLine);
+	} else if (mStyle == "dash") {
+		pen.setStyle(Qt::DashLine);
+	} else if (mStyle == "dashdot") {
+		pen.setStyle(Qt::DashDotLine);
+	} else if (mStyle == "dashdotdot") {
+		pen.setStyle(Qt::DashDotDotLine);
+	} else if (mStyle == "none") {
+		pen.setStyle(Qt::NoPen);
 	}
-	if (mStyle == "dot") {
-		mPen.setStyle(Qt::DotLine);
-	}
-	if (mStyle == "dash") {
-		mPen.setStyle(Qt::DashLine);
-	}
-	if (mStyle == "dashdot") {
-		mPen.setStyle(Qt::DashDotLine);
-	}
-	if (mStyle == "dashdotdot") {
-		mPen.setStyle(Qt::DashDotDotLine);
-	}
-	if (mStyle == "none") {
-		mPen.setStyle(Qt::NoPen);
-	}
-	return mPen;
+
+	return pen;
 }
 
-void Border::setColor(QColor const &color) {
-	if (mColor == color) { return; }
-	mColor = color;
-	emit colorChanged();
-	update();
+void Border::setColor(QColor const &color)
+{
+	if (mColor != color) {
+		mColor = color;
+		emit colorChanged();
+		update();
+	}
 }
 
 void Border::setWidth(int width){
-		if (mWidth == width) { return; }
+	if (mWidth != width) {
 		mWidth = width;
 		emit widthChanged();
 		update();
+	}
 }
 
 void Border::setStyle(QString const style)
 {
-	if(mStyle == style) return;
-	mStyle = style;
-	emit styleChanged();
-	update();
+	if(mStyle != style) {
+		mStyle = style;
+		emit styleChanged();
+		update();
+	}
 }

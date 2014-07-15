@@ -6,7 +6,9 @@
 
 #include "mainwindow/shapeEdit/item.h"
 #include "mainwindow/shapeEdit/line.h"
-using namespace qReal;
+
+namespace qReal {
+
 class Stylus : public Item
 {
 public:
@@ -36,3 +38,5 @@ private:
 	QList<AbstractItem *> mAbstractListLine;
 	graphicsUtils::StylusImpl mStylusImpl;
 };
+
+}

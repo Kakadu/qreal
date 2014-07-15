@@ -2,6 +2,7 @@
 #include "border.h"
 
 #include <QtGui/QPainter>
+#include <QDebug>
 
 using namespace qmlTypes;
 
@@ -14,6 +15,7 @@ DeclarativeEllipse::DeclarativeEllipse(QDeclarativeItem *parent)
 	, mColor(Qt::black)
 	, mBorder(new Border())
 {
+	qDebug() << "Ellipse";
 	// Important, otherwise the paint method is never called
 	setFlag(QGraphicsItem::ItemHasNoContents, false);
 }
@@ -60,51 +62,57 @@ Border* DeclarativeEllipse::border()
 }
 
 void DeclarativeEllipse::setX(int x) {
-	if (mX == x) { return; }
-	mX = x;
-	updateSize();
-	emit xChanged();
-	update();
+	if (mX != x) {
+		mX = x;
+		updateSize();
+		emit xChanged();
+		update();
+	}
 }
 
 void DeclarativeEllipse::setY(int y) {
-	if (mY == y) { return; }
-	mY = y;
-	updateSize();
-	emit yChanged();
-	update();
+	if (mY != y) {
+		mY = y;
+		updateSize();
+		emit yChanged();
+		update();
+	}
 }
 
 void DeclarativeEllipse::setWidth(int width) {
-	if (mWidth == width) { return; }
-	mWidth = width;
-	updateSize();
-	emit widthChanged();
-	update();
+	if (mWidth != width) {
+		mWidth = width;
+		updateSize();
+		emit widthChanged();
+		update();
+	}
 }
 
 void DeclarativeEllipse::setHeight(int height) {
-	if (mHeight == height) { return; }
-	mHeight = height;
-	updateSize();
-	emit heightChanged();
-	update();
+	if (mHeight != height) {
+		mHeight = height;
+		updateSize();
+		emit heightChanged();
+		update();
+	}
 }
 
 void DeclarativeEllipse::setColor(QColor const &color) {
-	if (mColor == color) { return; }
-	mColor = color;
-	emit colorChanged();
-	update();
+	if (mColor != color) {
+		mColor = color;
+		emit colorChanged();
+		update();
+	}
 }
 
 void DeclarativeEllipse::setBorder(Border* border)
 {
-	if (mBorder.width() == border->width() && mBorder.color() == border->color()) { return; }
-	mBorder.setWidth( border->width());
-	mBorder.setColor(border->color());
-	emit borderChanged();
-	update();
+	if (mBorder.width() != border->width() || mBorder.color() != border->color()) {
+		mBorder.setWidth( border->width());
+		mBorder.setColor(border->color());
+		emit borderChanged();
+		update();
+	}
 }
 
 void DeclarativeEllipse::updateSize() {

@@ -1,7 +1,7 @@
 import QtQuick 1.1
 import CustomComponents 1.0
 
-Rectangle{
+Rectangle {
     width: 30
     height: 30
     color: "transparent"
@@ -11,8 +11,8 @@ Rectangle{
         width: parent.width
         height: parent.height
         color: "white"
-        border.color: "green"
-        border.width: 5
+        border.color: "black"
+        border.width: 1
         Ellipse {
             x: parent.parent.width / 2
             y: parent.parent.height / 2
