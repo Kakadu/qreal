@@ -28,6 +28,8 @@
 const int sizeEmptyRectX = 680;
 const int sizeEmptyRectY = 580;
 
+namespace qReal {
+
 class Scene : public graphicsUtils::AbstractScene
 {
 	Q_OBJECT
@@ -151,3 +153,5 @@ private:
 
 	virtual void keyPressEvent(QKeyEvent *keyEvent);
 };
+
+}

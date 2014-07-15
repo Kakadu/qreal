@@ -20,23 +20,18 @@ class DeclarativeEllipse : public QDeclarativeItem
 public:
 	explicit DeclarativeEllipse(QDeclarativeItem *parent = 0);
 
-	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-
-	// Get methods
+	/// Returns the X coordinate of the center
 	int x() const;
+	/// Returns the Y coordinate of the center
 	int y() const;
+	/// Returns the width of the ellipse
 	int width() const;
+	/// Returns the height of the ellipse
 	int height() const;
+	/// Returns the color of the ellipse
 	QColor color() const;
+	/// Returns the pointer to the border, which stores border properties
 	Border *border();
-
-    // Set methods
-	void setX(int x);
-	void setY(int y);
-	void setWidth(int width);
-	void setHeight(int height);
-	void setColor(QColor const &color);
-	void setBorder(Border* border);
 
 signals:
 	void xChanged();
@@ -48,6 +43,22 @@ signals:
 
 protected:
 	void updateSize();
+	/// Sets the x coordinate of the center
+	void setX(int x);
+	/// Sets the y coordinate of the center
+	void setY(int y);
+	/// Sets the width of the ellipse
+	void setWidth(int width);
+	/// Sets the height of the ellipse
+	void setHeight(int height);
+	/// Sets the color of the ellipse
+	void setColor(QColor const &color);
+	/// Sets the pointer to border
+	void setBorder(Border* border);
+
+private:
+	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+
 protected:
 	int mX;
 	int mY;

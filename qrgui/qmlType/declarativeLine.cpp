@@ -36,46 +36,46 @@ void DeclarativeLine::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 	}
 
 	painter->setPen(pen);
-	if(smooth() == true) {
+	if(smooth()) {
 		painter->setRenderHint(QPainter::Antialiasing, true);
 	}
 
-	int x = qMin(mX1, mX2) - mPenWidth/2;
-	int y = qMin(mY1, mY2) - mPenWidth/2;
+	int x = qMin(mX1, mX2) - mPenWidth / 2;
+	int y = qMin(mY1, mY2) - mPenWidth / 2;
 	painter->drawLine(mX1 - x, mY1 - y, mX2 - x, mY2 - y);
 }
 
-int DeclarativeLine::x1()
+int DeclarativeLine::x1() const
 {
 	return mX1;
 }
 
-int DeclarativeLine::y1()
+int DeclarativeLine::y1() const
 {
 	return mY1;
 }
 
-int DeclarativeLine::x2()
+int DeclarativeLine::x2() const
 {
 	return mX2;
 }
 
-int DeclarativeLine::y2()
+int DeclarativeLine::y2() const
 {
 	return mY2;
 }
 
-QColor DeclarativeLine::color()
+QColor DeclarativeLine::color() const
 {
 	return mColor;
 }
 
-QString DeclarativeLine::style()
+QString DeclarativeLine::style() const
 {
 	return mStyle;
 }
 
-int DeclarativeLine::penWidth()
+int DeclarativeLine::penWidth() const
 {
 	return mPenWidth;
 }

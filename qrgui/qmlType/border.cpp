@@ -58,7 +58,8 @@ void Border::setColor(QColor const &color)
 	}
 }
 
-void Border::setWidth(int width){
+void Border::setWidth(int width)
+{
 	if (mWidth != width) {
 		mWidth = width;
 		emit widthChanged();

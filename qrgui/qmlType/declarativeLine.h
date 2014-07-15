@@ -18,28 +18,21 @@ class DeclarativeLine : public QDeclarativeItem
 
 public:
 	explicit DeclarativeLine(QDeclarativeItem *parent = 0);
-	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
-	// Get methods
-	int x1();
-	int y1();
-	int x2();
-	int y2();
-
-	QColor color();
-	QString style();
-	int penWidth();
-
-protected:
-	// Set methods
-	void setX1(int x);
-	void setY1(int y);
-	void setX2(int x);
-	void setY2(int y);
-	void setColor(const QColor &color);
-	void setStyle(const QString style);
-	void setPenWidth(int newWidth);
-	void updateSize();
+	/// Returns the x1 coordinate of the line
+	int x1() const;
+	/// Returns the y1 coordinate of the line
+	int y1() const;
+	/// Returns the x2 coordinate of the line
+	int x2() const;
+	/// Returns the y2 coordinate of the line
+	int y2() const;
+	/// Returns the color of the line.
+	QColor color() const;
+	/// Returns the type of the line.
+	QString style() const;
+	/// Returns the width of the line
+	int penWidth() const;
 
 signals:
 	void x1Changed();
@@ -49,6 +42,26 @@ signals:
 	void colorChanged();
 	void penWidthChanged();
 	void styleChanged();
+
+protected:
+	/// Sets the x1 coordinate of the line
+	void setX1(int x);
+	/// Sets the y1 coordinate of the line
+	void setY1(int y);
+	/// Sets the x2 coordinate of the line
+	void setX2(int x);
+	/// Sets the y2 coordinate of the line
+	void setY2(int y);
+	/// Sets the color of the line
+	void setColor(const QColor &color);
+	/// Sets the style of the line
+	void setStyle(const QString style);
+	/// Sets the width of the line
+	void setPenWidth(int newWidth);
+	void updateSize();
+
+private:
+	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
 protected:
 	int mX1;

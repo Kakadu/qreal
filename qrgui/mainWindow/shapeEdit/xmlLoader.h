@@ -7,6 +7,8 @@
 
 const int distanceFigure = 50;
 
+namespace qReal {
+
 class XmlLoader
 {
 public:
@@ -57,3 +59,5 @@ private:
 
 	bool isNotLCMZ(QString str, int i);
 };
+
+}

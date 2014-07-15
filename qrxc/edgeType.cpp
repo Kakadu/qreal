@@ -213,7 +213,6 @@ void EdgeType::generateGraphics() const
 			<< "\t} \n"
 			<< "}";
 	mDiagram->editor()->xmlCompiler()->addResource("\t<file>generated/shapes/" + resourceName("Class") + "</file>\n");
-
 }
 
 void EdgeType::generateCode(OutFile &out)

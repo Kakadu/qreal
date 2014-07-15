@@ -2,7 +2,6 @@
 #include "border.h"
 
 #include <QtGui/QPainter>
-#include <QDebug>
 
 using namespace qmlTypes;
 
@@ -15,20 +14,18 @@ DeclarativeEllipse::DeclarativeEllipse(QDeclarativeItem *parent)
 	, mColor(Qt::black)
 	, mBorder(new Border())
 {
-	qDebug() << "Ellipse";
 	// Important, otherwise the paint method is never called
 	setFlag(QGraphicsItem::ItemHasNoContents, false);
 }
 
 void DeclarativeEllipse::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-	QPen pen = mBorder.pen();
-	painter->setPen(pen);
-	if(smooth() == true) {
+	painter->setPen(mBorder.pen());
+	if(smooth()) {
 		painter->setRenderHint(QPainter::Antialiasing, true);
 	}
 	painter->setBrush(mColor);
-	painter->drawEllipse(mX-mWidth/2,mY-mHeight/2,mWidth, mHeight);
+	painter->drawEllipse(mX - mWidth / 2, mY - mHeight / 2, mWidth, mHeight);
 }
 
 int DeclarativeEllipse::x() const
@@ -56,12 +53,13 @@ QColor DeclarativeEllipse::color() const
 	return mColor;
 }
 
-Border* DeclarativeEllipse::border()
+Border *DeclarativeEllipse::border()
 {
 	return &mBorder;
 }
 
-void DeclarativeEllipse::setX(int x) {
+void DeclarativeEllipse::setX(int x)
+{
 	if (mX != x) {
 		mX = x;
 		updateSize();
@@ -70,7 +68,8 @@ void DeclarativeEllipse::setX(int x) {
 	}
 }
 
-void DeclarativeEllipse::setY(int y) {
+void DeclarativeEllipse::setY(int y)
+{
 	if (mY != y) {
 		mY = y;
 		updateSize();
@@ -79,7 +78,8 @@ void DeclarativeEllipse::setY(int y) {
 	}
 }
 
-void DeclarativeEllipse::setWidth(int width) {
+void DeclarativeEllipse::setWidth(int width)
+{
 	if (mWidth != width) {
 		mWidth = width;
 		updateSize();
@@ -88,7 +88,8 @@ void DeclarativeEllipse::setWidth(int width) {
 	}
 }
 
-void DeclarativeEllipse::setHeight(int height) {
+void DeclarativeEllipse::setHeight(int height)
+{
 	if (mHeight != height) {
 		mHeight = height;
 		updateSize();
@@ -97,7 +98,8 @@ void DeclarativeEllipse::setHeight(int height) {
 	}
 }
 
-void DeclarativeEllipse::setColor(QColor const &color) {
+void DeclarativeEllipse::setColor(QColor const &color)
+{
 	if (mColor != color) {
 		mColor = color;
 		emit colorChanged();
@@ -105,7 +107,7 @@ void DeclarativeEllipse::setColor(QColor const &color) {
 	}
 }
 
-void DeclarativeEllipse::setBorder(Border* border)
+void DeclarativeEllipse::setBorder(Border *border)
 {
 	if (mBorder.width() != border->width() || mBorder.color() != border->color()) {
 		mBorder.setWidth( border->width());
@@ -115,7 +117,8 @@ void DeclarativeEllipse::setBorder(Border* border)
 	}
 }
 
-void DeclarativeEllipse::updateSize() {
+void DeclarativeEllipse::updateSize()
+{
 	setX(mX);
 	setY(mY);
 	setWidth(mWidth);
