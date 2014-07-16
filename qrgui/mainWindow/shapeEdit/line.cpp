@@ -5,6 +5,7 @@
 #include <QtWidgets/QStyleOptionGraphicsItem>
 
 const int step = 3;
+
 using namespace qReal;
 using namespace graphicsUtils;
 

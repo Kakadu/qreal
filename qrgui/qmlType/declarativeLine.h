@@ -30,9 +30,13 @@ public:
 	/// Returns the color of the line.
 
 signals:
+	/// Signal change of x1 coordinate
 	void x1Changed();
+	/// Signal change of y1 coordinate
 	void y1Changed();
+	/// Signal change of x2 coordinate
 	void x2Changed();
+	/// Signal change of y2 coordinate
 	void y2Changed();
 
 protected:

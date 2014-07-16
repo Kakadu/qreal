@@ -34,8 +34,11 @@ public:
 	void setStyle(QString const &style);
 
 signals:
+	/// Signal change pen color
 	void colorChanged();
+	/// Signal change pen width
 	void widthChanged();
+	/// Signal change pen style
 	void styleChanged();
 
 protected:

@@ -35,11 +35,17 @@ public:
 	DeclarativePen *border();
 
 signals:
+	/// Signal change of X coordinate
 	void xChanged();
+	/// Signal change of Y coordinate
 	void yChanged();
+	/// Signal change ellipse width
 	void widthChanged();
+	/// Signal change ellipse height
 	void heightChanged();
+	/// Signal change ellipse color
 	void colorChanged();
+	/// Signal change ellipse border
 	void borderChanged();
 
 protected:
