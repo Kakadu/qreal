@@ -6,6 +6,7 @@
 
 namespace qmlTypes {
 
+/// DeclarativeLineclass is a class that provide qml line
 class DeclarativeLine : public DeclarativePen
 {
 	Q_OBJECT

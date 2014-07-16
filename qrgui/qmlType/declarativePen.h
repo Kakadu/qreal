@@ -5,6 +5,7 @@
 
 namespace qmlTypes {
 
+/// DeclarativePen class is a class that provide qml border
 class DeclarativePen : public QDeclarativeItem
 {
 	Q_OBJECT
@@ -14,7 +15,7 @@ class DeclarativePen : public QDeclarativeItem
 	Q_PROPERTY(QString style READ style WRITE setStyle NOTIFY styleChanged)
 
 public:
-	explicit DeclarativePen (QDeclarativeItem *parent = 0);
+	explicit DeclarativePen(QDeclarativeItem *parent = 0);
 
 	/// Returns  the type of border. For example "solid", "dot"
 	QString style() const;
@@ -30,7 +31,7 @@ public:
 	/// Sets the color of the pen
 	void setColor(QColor const &color);
 	/// Sets the dtyle of the pen
-	void setStyle(QString const style);
+	void setStyle(QString const &style);
 
 signals:
 	void colorChanged();

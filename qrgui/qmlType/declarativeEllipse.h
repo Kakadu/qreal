@@ -6,6 +6,7 @@
 
 namespace qmlTypes {
 
+/// DeclarativeEllipse class is a class that provide qml ellipse
 class DeclarativeEllipse : public QDeclarativeItem
 {
 	Q_OBJECT

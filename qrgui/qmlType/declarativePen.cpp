@@ -67,7 +67,7 @@ void DeclarativePen::setWidth(int width)
 	}
 }
 
-void DeclarativePen::setStyle(QString const style)
+void DeclarativePen::setStyle(QString const &style)
 {
 	if (mStyle != style) {
 		mStyle = style;
